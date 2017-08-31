@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appbar_bigimage_behavior">com.bigimage.ImageBehavior</string>
+</resources>

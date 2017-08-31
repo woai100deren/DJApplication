@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.dj.collection"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true//适配5.0以下矢量图
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi-v7a' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    sourceSets {//目录指向配置
+        main {
+            java.srcDirs = ['src/main/base/java',
+                            'src/main/eventBus/java',
+                            'src/main/anim/java',
+                            'src/main/dynamicSo/java',
+                            'src/main/cputype/java',
+                            'src/main/dytest/java',
+                            'src/main/bugly/java',
+                            'src/main/zipwithpwd/java',
+                            'src/main/coordinator/java',
+                            'src/main/mvvm/java',
+                            'src/main/mvp/java',
+                            'src/main/scrollBigImage/java',
+                            'src/main/scrollBigImage2/java',
+                            'src/main/rxjava/java']//指定source目录
+            res.srcDirs = ['src/main/base/res',
+                           'src/main/eventBus/res',
+                           'src/main/anim/res',
+                           'src/main/dynamicSo/res',
+                           'src/main/dytest/res',
+                           'src/main/cputype/res',
+                           'src/main/bugly/res',
+                           'src/main/mvvm/res',
+                           'src/main/mvp/res',
+                           'src/main/zipwithpwd/res',
+                           'src/main/scrollBigImage/res',
+                           'src/main/scrollBigImage2/res',
+                           'src/main/coordinator/res',
+                           'src/main/rxjava/res']//指定资源目录
+        }
+    }
+
+    dataBinding{
+        enabled = true
+    }
+
+    defaultConfig {
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+        mavenCentral()
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.jakewharton:butterknife:8.8.1'//注解，好用
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'io.reactivex:rxandroid:1.2.1'
+//    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:1.10.19"
+
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.9.7'
+
+    //glide
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
+
+    compile project(':framework:utils')
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+    compile 'com.alibaba:fastjson:1.2.37'
+}

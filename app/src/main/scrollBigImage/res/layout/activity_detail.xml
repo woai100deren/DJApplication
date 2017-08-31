@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.detail.TopPicScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    android:id="@+id/scrollView">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fm1"
+            android:scaleType="centerCrop"
+            android:id="@+id/imageView"
+            tools:layout_height="160dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_home_custom_setup"
+            android:scaleType="centerCrop"/>
+    </LinearLayout>
+</com.detail.TopPicScrollView>
