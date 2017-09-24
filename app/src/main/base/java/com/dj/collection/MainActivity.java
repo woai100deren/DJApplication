@@ -1,6 +1,7 @@
 package com.dj.collection;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -73,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.jumpBtn)
     protected void jump(){
+//        Intent intent= new Intent();
+//        intent.setAction("android.intent.action.VIEW");
+//        Uri content_url = Uri.parse("http://gdown.baidu.com/data/wisegame/43e76ce22df64c52/QQ_730.apk");
+//        intent.setData(content_url);
+//        startActivity(intent);
         startActivity(new Intent(MainActivity.this, EventBusMainActivity.class));
     }
 
