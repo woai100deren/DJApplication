@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
 
+    <!-- 指纹权限 -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+
     <application
         android:name=".DJApplication"
         android:allowBackup="true"
@@ -40,6 +43,7 @@
         <activity android:name="com.bigimage.BigImageActivity" android:screenOrientation="portrait"/>
         <activity android:name=".RetrofitActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dj.mvvm.MvvmActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.finger.FingerMainActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

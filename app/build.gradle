@@ -55,6 +55,7 @@ android {
                             'src/main/mvp/java',
                             'src/main/scrollBigImage/java',
                             'src/main/scrollBigImage2/java',
+                            'src/main/fingerIdentify/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -69,6 +70,7 @@ android {
                            'src/main/scrollBigImage/res',
                            'src/main/scrollBigImage2/res',
                            'src/main/coordinator/res',
+                           'src/main/fingerIdentify/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }

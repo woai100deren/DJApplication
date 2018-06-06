@@ -26,6 +26,7 @@ import com.dynamicso.DynamicsoActivity;
 import com.eventbus.EventBusMainActivity;
 import com.eventbus.event.MessageEvent;
 import com.eventbus.event.ToastEvent;
+import com.finger.FingerMainActivity;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.rxjava.RxJavaMainActivity;
@@ -144,6 +145,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.mvvm)
     protected void mvvm(){
         startActivity(new Intent(MainActivity.this, MvvmActivity.class));
+    }
+
+    @OnClick(R.id.finger)
+    protected void finger(){
+        startActivity(new Intent(MainActivity.this, FingerMainActivity.class));
     }
 
     @Override
