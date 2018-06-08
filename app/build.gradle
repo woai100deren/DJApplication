@@ -56,6 +56,7 @@ android {
                             'src/main/scrollBigImage/java',
                             'src/main/scrollBigImage2/java',
                             'src/main/fingerIdentify/java',
+                            'src/main/baiduAI/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -71,6 +72,7 @@ android {
                            'src/main/scrollBigImage2/res',
                            'src/main/coordinator/res',
                            'src/main/fingerIdentify/res',
+                           'src/main/baiduAI/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -92,30 +94,30 @@ allprojects {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.jakewharton:butterknife:8.8.1'//注解，好用
+    compile 'com.jakewharton:butterknife:8.8.1'
+    //注解，好用
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'io.reactivex:rxandroid:1.2.1'
-//    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    //    compile 'com.squareup.okhttp3:okhttp:3.8.1'
     testCompile 'junit:junit:4.12'
-    testCompile "org.mockito:mockito-core:1.10.19"
-
+    testCompile 'org.mockito:mockito-core:1.10.19'
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.9.7'
-
     //glide
     compile 'com.github.bumptech.glide:glide:4.0.0'
     compile 'com.android.support:support-v4:25.3.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
-
     compile project(':framework:utils')
+    compile project(':ocr_ui')
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
     compile 'com.alibaba:fastjson:1.2.37'
+    compile files('libs/ocr-sdk.jar')
 }

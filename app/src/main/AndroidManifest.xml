@@ -12,6 +12,10 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <!-- 指纹权限 -->
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
 
@@ -44,6 +48,11 @@
         <activity android:name=".RetrofitActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dj.mvvm.MvvmActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.finger.FingerMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.bd.scan.BankScanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.bd.scan.IDCardActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.baidu.ocr.ui.camera.CameraActivity"
+            android:configChanges="screenSize|orientation"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"/>
     </application>
 
 </manifest>

@@ -1,7 +1,6 @@
 package com.dj.collection;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.widget.Toast;
 
 import com.anim.AnimatedVectorActivity;
 import com.anim.DataChangeActivity;
+import com.bd.scan.BankScanActivity;
 import com.bigimage.BigImageActivity;
 import com.coordinator.CoordinatorActivity;
 import com.detail.DetailActivity;
@@ -150,6 +150,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.finger)
     protected void finger(){
         startActivity(new Intent(MainActivity.this, FingerMainActivity.class));
+    }
+
+    @OnClick(R.id.bankScan)
+    protected void bankScan(){
+        startActivity(new Intent(MainActivity.this, BankScanActivity.class));
     }
 
     @Override
