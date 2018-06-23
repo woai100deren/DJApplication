@@ -27,6 +27,7 @@ import com.eventbus.EventBusMainActivity;
 import com.eventbus.event.MessageEvent;
 import com.eventbus.event.ToastEvent;
 import com.finger.FingerMainActivity;
+import com.live.LiveRoomActivity;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.pdf.PdfActivity;
@@ -161,6 +162,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.pdf)
     protected void pdf(){
         startActivity(new Intent(MainActivity.this, PdfActivity.class));
+    }
+
+    @OnClick(R.id.aliLive)
+    protected void aliLive(){
+        startActivity(new Intent(MainActivity.this, LiveRoomActivity.class));
     }
 
     @Override

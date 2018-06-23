@@ -108,6 +108,11 @@
                 android:layout_height="wrap_content"
                 android:text="pdf展示"
                 android:id="@+id/pdf"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="阿里直播"
+                android:id="@+id/aliLive"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

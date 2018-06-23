@@ -18,7 +18,8 @@ public class PdfActivity extends BaseActivity {
 
         final PDFView pdfView = (PDFView) findViewById(R.id.pdfView);
         final Button next = (Button) findViewById(R.id.next);
-        pdfView.fromAsset("123.pdf")
+//        pdfView.fromAsset("123.pdf")
+        pdfView.fromAsset("2.pdf")
                 .defaultPage(page)
                 .swipeHorizontal(true)
                 .enableDoubletap(false)
