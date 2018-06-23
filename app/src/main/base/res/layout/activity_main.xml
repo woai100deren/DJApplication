@@ -103,6 +103,11 @@
                 android:layout_height="wrap_content"
                 android:text="银行卡识别"
                 android:id="@+id/bankScan"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pdf展示"
+                android:id="@+id/pdf"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -53,6 +53,7 @@
         <activity android:name="com.baidu.ocr.ui.camera.CameraActivity"
             android:configChanges="screenSize|orientation"
             android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"/>
+        <activity android:name="com.pdf.PdfActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

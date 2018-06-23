@@ -57,6 +57,7 @@ android {
                             'src/main/scrollBigImage2/java',
                             'src/main/fingerIdentify/java',
                             'src/main/baiduAI/java',
+                            'src/main/pdf/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -73,6 +74,7 @@ android {
                            'src/main/coordinator/res',
                            'src/main/fingerIdentify/res',
                            'src/main/baiduAI/res',
+                           'src/main/pdf/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -115,6 +117,7 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
     compile project(':framework:utils')
+    compile project(':framework:android-pdf-viewer')
     compile project(':ocr_ui')
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'

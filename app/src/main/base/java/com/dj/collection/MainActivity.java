@@ -29,6 +29,7 @@ import com.eventbus.event.ToastEvent;
 import com.finger.FingerMainActivity;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.pdf.PdfActivity;
 import com.rxjava.RxJavaMainActivity;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -155,6 +156,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bankScan)
     protected void bankScan(){
         startActivity(new Intent(MainActivity.this, BankScanActivity.class));
+    }
+
+    @OnClick(R.id.pdf)
+    protected void pdf(){
+        startActivity(new Intent(MainActivity.this, PdfActivity.class));
     }
 
     @Override

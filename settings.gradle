@@ -1,3 +1,4 @@
 include ':app',
         ':framework:utils',
-        ':ocr_ui'
+        ':ocr_ui',
+        ':framework:android-pdf-viewer'
