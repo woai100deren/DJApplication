@@ -182,7 +182,9 @@ public class LiveRoomActivity extends BaseActivity {
         mAlivcLivePusher.startPreview(null);
         mAlivcLivePusher.startPush(url);
 
-        mAlivcLivePusher.setCaptureVolume(50);//mCaptureVolume
+        mAlivcLivePusher.setCaptureVolume(100);//mCaptureVolume
+        /*设置耳返开关。耳返功能主要应用于KTV场景。打开耳返后，插入耳机将在耳机中听到主播说话声音。关闭后，插入耳机无法听到人声。未插入耳机的情况下，耳返不起作用。*/
+        mAlivcLivePusher.setBGMEarsBack(true);
     }
 
     /**
@@ -388,7 +390,7 @@ public class LiveRoomActivity extends BaseActivity {
                     mAlivcLivePushConfig.setMediaProjectionPermissionResultData(data);
                     if (mAlivcLivePushConfig.getMediaProjectionPermissionResultData() != null) {
                         if (mAlivcLivePusher == null) {
-                            startPushWithoutSurface("rtmp://push-demo.aliyunlive.com/test/stream6");
+                            startPushWithoutSurface("rtmp://video-center-bj.alivecdn.com/AppName/StreamName?vhost=youxiads.com&auth_key=1529932991-0-0-62a4355b3a4a5b634ea665e67f7a40e6");
                         } else {
                             stopPushWithoutSurface();
                         }
