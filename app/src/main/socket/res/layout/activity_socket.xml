@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/serverBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="初始化服务端"/>
+    <EditText
+        android:id="@+id/clientIp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="客户端ip"/>
+    <Button
+        android:id="@+id/clientBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="初始化客户端"/>
+    <EditText
+        android:id="@+id/messageContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入消息内容"/>
+    <Button
+        android:id="@+id/sendBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送消息"/>
+</LinearLayout>

@@ -1,6 +1,7 @@
 package com.anim;
 
 import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
@@ -21,11 +22,17 @@ import butterknife.OnClick;
 public class AnimatedVectorActivity extends BaseActivity {
     @BindView(R.id.iv_2)
     AppCompatImageView appCompatImageView;
+    @BindView(R.id.anImg)
+    ImageView anImg;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animated_vector);
         ButterKnife.bind(this);
+
+
+        AnimationDrawable anim = (AnimationDrawable) anImg.getDrawable();
+        anim.start();
     }
 
     private boolean isTwitterChecked = false;

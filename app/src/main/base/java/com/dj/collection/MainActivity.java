@@ -2,6 +2,8 @@ package com.dj.collection;
 
 import android.content.Intent;
 import android.os.Environment;
+import android.support.annotation.Dimension;
+import android.support.constraint.solver.widgets.Rectangle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -21,6 +23,7 @@ import com.dj.collection.utils.Utils;
 import com.dj.cpu.CPUFrameworkHelper;
 import com.dj.cpu.CpuTypeActivity;
 import com.dj.mvvm.MvvmActivity;
+import com.dj.sk.SocketActivity;
 import com.dj.zip.ZipActivity;
 import com.dynamicso.DynamicsoActivity;
 import com.eventbus.EventBusMainActivity;
@@ -169,6 +172,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, LiveRoomActivity.class));
     }
 
+    @OnClick(R.id.socket)
+    protected void socket(){
+        startActivity(new Intent(MainActivity.this, SocketActivity.class));
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -206,4 +214,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -8,6 +8,7 @@ import android.media.projection.MediaProjectionManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Toast;
 
@@ -38,10 +39,13 @@ public class LiveRoomActivity extends BaseActivity {
     private AlivcLivePusher mAlivcLivePusher;
     private AlivcLivePushConfig mAlivcLivePushConfig;
     private Context mContext;
+    private SurfaceView faceSurfaceView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live);
+
+        faceSurfaceView = (SurfaceView) findViewById(R.id.faceSurfaceView);
 
         mContext = this;
 
@@ -181,6 +185,21 @@ public class LiveRoomActivity extends BaseActivity {
 
         mAlivcLivePusher.startPreview(null);
         mAlivcLivePusher.startPush(url);
+
+
+        /*切换前后摄像头*/
+        mAlivcLivePusher.switchCamera();
+        /*开启/关闭闪光灯，在前置摄像头时开启闪关灯无效*/
+        mAlivcLivePusher.setFlash(true);
+        /*焦距调整，即可实现采集画面的缩放功能。缩放范围为[0,getMaxZoom()]。*/
+        mAlivcLivePusher.setZoom(0);
+        /*设置是否自动对焦*/
+        mAlivcLivePusher.setAutoFocus(true);
+        /*镜像设置。镜像相关接口有两个，PushMirror推流镜像和PreviewMirror预览镜像。PushMirror设置仅对播放画面生效，PreviewMirror仅对预览画面生效，两者互不影响。*/
+        mAlivcLivePusher.setPreviewMirror(false);
+        mAlivcLivePusher.setPushMirror(false);
+
+        mAlivcLivePusher.startCamera(faceSurfaceView);//开启摄像头预览
 
         mAlivcLivePusher.setCaptureVolume(100);//mCaptureVolume
         /*设置耳返开关。耳返功能主要应用于KTV场景。打开耳返后，插入耳机将在耳机中听到主播说话声音。关闭后，插入耳机无法听到人声。未插入耳机的情况下，耳返不起作用。*/
@@ -390,7 +409,7 @@ public class LiveRoomActivity extends BaseActivity {
                     mAlivcLivePushConfig.setMediaProjectionPermissionResultData(data);
                     if (mAlivcLivePushConfig.getMediaProjectionPermissionResultData() != null) {
                         if (mAlivcLivePusher == null) {
-                            startPushWithoutSurface("rtmp://video-center-bj.alivecdn.com/AppName/StreamName?vhost=youxiads.com&auth_key=1529932991-0-0-62a4355b3a4a5b634ea665e67f7a40e6");
+                            startPushWithoutSurface("rtmp://video-center-bj.alivecdn.com/AppName/StreamName?vhost=youxiads.com&auth_key=1530019809-0-0-f10e159370510a07a74d0b6ce8489dbf");
                         } else {
                             stopPushWithoutSurface();
                         }

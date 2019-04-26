@@ -9,4 +9,11 @@
         android:layout_height="wrap_content"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/heart_twitter"/><!--android:src="@drawable/heart_twitter" -->
+
+    <ImageView
+        android:id="@+id/anImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/an_number"
+        android:layout_margin="10dp"/>
 </LinearLayout>

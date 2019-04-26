@@ -60,6 +60,7 @@ android {
                             'src/main/baiduAI/java',
                             'src/main/pdf/java',
                             'src/main/aliLive/java',
+                            'src/main/socket/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -78,6 +79,7 @@ android {
                            'src/main/baiduAI/res',
                            'src/main/pdf/res',
                            'src/main/aliLive/res',
+                           'src/main/socket/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -123,6 +125,9 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:4.0.0'
     compile 'com.android.support:support-v4:25.3.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
+
+//    compile 'com.github.nkzawa:socket.io-client:0.3.0'
+
     compile project(':framework:utils')
     compile project(':framework:android-pdf-viewer')
     compile project(':ocr_ui')

@@ -113,6 +113,11 @@
                 android:layout_height="wrap_content"
                 android:text="阿里直播"
                 android:id="@+id/aliLive"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="socket"
+                android:id="@+id/socket"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
