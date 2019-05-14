@@ -22,6 +22,7 @@ import com.dj.collection.network.listener.OnDownloadListener;
 import com.dj.collection.utils.Utils;
 import com.dj.cpu.CPUFrameworkHelper;
 import com.dj.cpu.CpuTypeActivity;
+import com.dj.dagger.DaggerMainActvity;
 import com.dj.mvvm.MvvmActivity;
 import com.dj.sk.SocketActivity;
 import com.dj.zip.ZipActivity;
@@ -175,6 +176,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.socket)
     protected void socket(){
         startActivity(new Intent(MainActivity.this, SocketActivity.class));
+    }
+
+    @OnClick(R.id.dagger)
+    protected void dagger(){
+        startActivity(new Intent(MainActivity.this, DaggerMainActvity.class));
     }
 
     @Override

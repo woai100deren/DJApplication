@@ -61,6 +61,7 @@ android {
                             'src/main/pdf/java',
                             'src/main/aliLive/java',
                             'src/main/socket/java',
+                            'src/main/dagger/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -80,6 +81,7 @@ android {
                            'src/main/pdf/res',
                            'src/main/aliLive/res',
                            'src/main/socket/res',
+                           'src/main/dagger/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -134,5 +136,11 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
     compile 'com.alibaba:fastjson:1.2.37'
+
+    //dagger2
+    compile 'com.google.dagger:dagger-android:2.22.1'
+    compile 'com.google.dagger:dagger-android-support:2.22.1' // if you use the support libraries
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.22.1'
+
     compile files('libs/ocr-sdk.jar')
 }

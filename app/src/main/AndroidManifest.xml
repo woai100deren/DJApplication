@@ -80,6 +80,7 @@
         <activity android:name="com.pdf.PdfActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.live.LiveRoomActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dj.sk.SocketActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.dj.dagger.DaggerMainActvity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
