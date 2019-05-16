@@ -5,8 +5,9 @@
     android:orientation="vertical">
     <SurfaceView
         android:id="@+id/surface_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:visibility="gone"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,6 +22,11 @@
             android:layout_height="wrap_content"
             android:text="切换"
             android:id="@+id/changeBtn"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
     </LinearLayout>
 
 </RelativeLayout>

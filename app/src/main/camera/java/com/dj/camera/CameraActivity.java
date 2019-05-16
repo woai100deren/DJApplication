@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.WindowManager;
 
 import com.dj.collection.BaseActivity;
 import com.dj.collection.R;
@@ -32,6 +33,9 @@ public class CameraActivity extends BaseActivity implements SurfaceHolder.Callba
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //保持屏幕常亮
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         setContentView(R.layout.activity_camera);
         ButterKnife.bind(this);
 
@@ -42,7 +46,6 @@ public class CameraActivity extends BaseActivity implements SurfaceHolder.Callba
         camera.setPreviewCallback(new Camera.PreviewCallback() {
             @Override
             public void onPreviewFrame(final byte[] data, Camera camera) {
-                LogUtils.e("1111111",data.length);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {

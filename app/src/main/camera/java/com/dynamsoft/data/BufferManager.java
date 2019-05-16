@@ -1,5 +1,8 @@
 package com.dynamsoft.data;
 
+import android.graphics.Bitmap;
+import com.dynamsoft.ui.Utils;
+
 import java.util.LinkedList;
 
 public class BufferManager extends Thread {
@@ -81,10 +84,12 @@ public class BufferManager extends Thread {
     	
     	while (!Thread.currentThread().isInterrupted()) {
     		byte[] data;
-    		synchronized (mYUVQueue) {
+			synchronized (mYUVQueue) {
     			data = mYUVQueue.poll();
     			if (data != null) {
-                    mListener.onDirty(data);
+					int[] rgbArray = Utils.convertYUVtoRGB(data, mWidth, mHeight);
+					mListener.onDirty(Bitmap.createBitmap(rgbArray,  mWidth, mHeight,Bitmap.Config.RGB_565));
+//                    mListener.onDirty(data);
     			}
     			
     		}

@@ -94,7 +94,7 @@ public class SocketServer extends Thread {
 		            jsonObj.addProperty("state", "ok");
 		            outputStream.write(jsonObj.toString().getBytes());
 		            outputStream.flush();
-		            
+
 		            // read image data
 				    while ((len = inputStream.read(imageBuff)) != -1) {
 	                    mBufferManager.fillBuffer(imageBuff, len);

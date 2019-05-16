@@ -1,9 +1,13 @@
 package com.dynamsoft;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.dj.camera.AndroidHradwareDecode;
 import com.dj.collection.BaseActivity;
@@ -20,6 +24,9 @@ public class CameraShowActivity extends BaseActivity implements DataListener {
     @BindView(R.id.surface_view)
     SurfaceView surfaceView;
 
+    @BindView(R.id.imageView)
+    ImageView imageView;
+
     AndroidHradwareDecode mDecode;
 
 
@@ -27,10 +34,13 @@ public class CameraShowActivity extends BaseActivity implements DataListener {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //保持屏幕常亮
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         setContentView(R.layout.activity_camera);
         ButterKnife.bind(this);
 
-        initSurface();
+//        initSurface();
 
         SocketServer server = new SocketServer();
         server.setOnDataListener(this);
@@ -41,6 +51,18 @@ public class CameraShowActivity extends BaseActivity implements DataListener {
     @Override
     public void onDirty(byte[] data) {
         updateUI(data);
+    }
+
+    @Override
+    public void onDirty(final Bitmap bitmap) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                LogUtils.e("111111111111111111",System.currentTimeMillis());
+                imageView.setImageBitmap(bitmap);
+            }
+        });
+
     }
 
     private void updateUI(byte[] data) {
@@ -58,7 +80,7 @@ public class CameraShowActivity extends BaseActivity implements DataListener {
         mHolder.addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
-                mDecode = new AndroidHradwareDecode(surfaceHolder);
+//                mDecode = new AndroidHradwareDecode(surfaceHolder);
             }
 
             @Override
