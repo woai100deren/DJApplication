@@ -17,6 +17,7 @@ import com.bigimage.BigImageActivity;
 import com.coordinator.CoordinatorActivity;
 import com.detail.DetailActivity;
 import com.dj.bugly.BuglyActivity;
+import com.dj.camera.CameraActivity;
 import com.dj.collection.network.HttpUtils;
 import com.dj.collection.network.listener.OnDownloadListener;
 import com.dj.collection.utils.Utils;
@@ -27,6 +28,7 @@ import com.dj.mvvm.MvvmActivity;
 import com.dj.sk.SocketActivity;
 import com.dj.zip.ZipActivity;
 import com.dynamicso.DynamicsoActivity;
+import com.dynamsoft.CameraShowActivity;
 import com.eventbus.EventBusMainActivity;
 import com.eventbus.event.MessageEvent;
 import com.eventbus.event.ToastEvent;
@@ -181,6 +183,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.dagger)
     protected void dagger(){
         startActivity(new Intent(MainActivity.this, DaggerMainActvity.class));
+    }
+
+    @OnClick(R.id.camera)
+    protected void camera(){
+        startActivity(new Intent(MainActivity.this, CameraShowActivity.class));
     }
 
     @Override

@@ -62,6 +62,7 @@ android {
                             'src/main/aliLive/java',
                             'src/main/socket/java',
                             'src/main/dagger/java',
+                            'src/main/camera/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -82,6 +83,7 @@ android {
                            'src/main/aliLive/res',
                            'src/main/socket/res',
                            'src/main/dagger/res',
+                           'src/main/camera/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -105,9 +107,8 @@ allprojects {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile (name:'live-pusher-resources-3.3.5',ext:'aar')
-    compile (name:'AlivcReporter',ext:'aar')
-
+    compile(name: 'live-pusher-resources-3.3.5', ext: 'aar')
+    compile(name: 'AlivcReporter', ext: 'aar')
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -127,20 +128,18 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:4.0.0'
     compile 'com.android.support:support-v4:25.3.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
-
-//    compile 'com.github.nkzawa:socket.io-client:0.3.0'
-
+    //    compile 'com.github.nkzawa:socket.io-client:0.3.0'
     compile project(':framework:utils')
     compile project(':framework:android-pdf-viewer')
     compile project(':ocr_ui')
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
     compile 'com.alibaba:fastjson:1.2.37'
-
     //dagger2
     compile 'com.google.dagger:dagger-android:2.22.1'
-    compile 'com.google.dagger:dagger-android-support:2.22.1' // if you use the support libraries
+    compile 'com.google.dagger:dagger-android-support:2.22.1'
+    // if you use the support libraries
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.22.1'
-
     compile files('libs/ocr-sdk.jar')
+    compile files('libs/gson-2.2.4.jar')
 }
