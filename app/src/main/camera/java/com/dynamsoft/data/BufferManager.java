@@ -1,6 +1,8 @@
 package com.dynamsoft.data;
 
 import android.graphics.Bitmap;
+
+import com.dj.logutil.LogUtils;
 import com.dynamsoft.ui.Utils;
 
 import java.util.LinkedList;
@@ -28,6 +30,8 @@ public class BufferManager extends Thread {
     
 	public void fillBuffer(byte[] data, int len) {
 		mFillCount = mFillCount % MAX_BUFFER_COUNT;
+        LogUtils.e("111111111111","len1 = "+len);
+        LogUtils.e("111111111111","mRemained1 = "+mRemained);
 		if (mRemained != 0) {
 			if (mRemained < len) {
 				mBufferQueue[mFillCount].fillBuffer(data, 0, mRemained, mYUVQueue);
@@ -87,9 +91,9 @@ public class BufferManager extends Thread {
 			synchronized (mYUVQueue) {
     			data = mYUVQueue.poll();
     			if (data != null) {
-					int[] rgbArray = Utils.convertYUVtoRGB(data, mWidth, mHeight);
-					mListener.onDirty(Bitmap.createBitmap(rgbArray,  mWidth, mHeight,Bitmap.Config.RGB_565));
-//                    mListener.onDirty(data);
+//					int[] rgbArray = Utils.convertYUVtoRGB(data, mWidth, mHeight);
+//					mListener.onDirty(Bitmap.createBitmap(rgbArray,  mWidth, mHeight,Bitmap.Config.RGB_565));
+                    mListener.onDirty(data);
     			}
     			
     		}

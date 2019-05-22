@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.dj.collection"
         minSdkVersion 18
@@ -142,4 +143,8 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.22.1'
     compile files('libs/ocr-sdk.jar')
     compile files('libs/gson-2.2.4.jar')
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

@@ -1,12 +1,15 @@
 package com.dynamsoft.io;
 
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import com.dj.logutil.LogUtils;
 import com.dynamsoft.data.BufferManager;
 import com.dynamsoft.data.DataListener;
 import com.google.gson.JsonElement;
@@ -44,11 +47,11 @@ public class SocketServer extends Thread {
 
 				socket = mServer.accept();
 				System.out.println("new socket");
-				
+
 				inputStream = new BufferedInputStream(socket.getInputStream());
 				outputStream = new BufferedOutputStream(socket.getOutputStream());
 				
-				byte[] buff = new byte[256];
+				byte[] buff = new byte[4096];
 				byte[] imageBuff = null;
 				int len = 0;
 				String msg = null;
@@ -77,7 +80,8 @@ public class SocketServer extends Thread {
 	                        int width = element.getAsInt();
 	                        element = obj.get("height");
 	                        int height = element.getAsInt();
-	                        
+
+
 	                        imageBuff = new byte[length];
                             mBufferManager = new BufferManager(length, width, height);
                             mBufferManager.setOnDataListener(mDataListener);
@@ -95,10 +99,22 @@ public class SocketServer extends Thread {
 		            outputStream.write(jsonObj.toString().getBytes());
 		            outputStream.flush();
 
+
+//					mBufferManager.fillBuffer(readInputStream(inputStream), imageBuff.length);
+
+//					int[] rgbArray = Utils.convertYUVtoRGB(readInputStream(inputStream), 640, 480);
+//					mDataListener.onDirty(Bitmap.createBitmap(rgbArray,  640, 480,Bitmap.Config.RGB_565));
+
+
 		            // read image data
-				    while ((len = inputStream.read(imageBuff)) != -1) {
-	                    mBufferManager.fillBuffer(imageBuff, len);
-	                }
+					LogUtils.e("111111111111","imageBuff.length = "+imageBuff.length);
+				    while ((len = inputStream.read(imageBuff,0,imageBuff.length)) != -1) {
+						mBufferManager.fillBuffer(imageBuff, len);
+//						break;
+
+//						mDataListener.onDirty(imageBuff);
+
+					}
 				}
 				
 				if (mBufferManager != null) {
@@ -136,6 +152,19 @@ public class SocketServer extends Thread {
 
 		}
 
+	}
+
+	public static  byte[] readInputStream(InputStream inputStream) throws IOException {
+		LogUtils.e("111111","开始1111："+System.currentTimeMillis());
+		byte[] buffer = new byte[1024];
+		int len = 0;
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		while((len = inputStream.read(buffer)) != -1) {
+			bos.write(buffer, 0, len);
+		}
+		bos.close();
+		LogUtils.e("111111","结束1111："+System.currentTimeMillis());
+		return bos.toByteArray();
 	}
 
 	public void setOnDataListener(DataListener listener) {

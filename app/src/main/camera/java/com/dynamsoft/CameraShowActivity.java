@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.dj.camera.AndroidHradwareDecode;
+import com.dj.camera.kotlin.MyGLSurfaceView;
 import com.dj.collection.BaseActivity;
 import com.dj.collection.R;
 import com.dj.logutil.LogUtils;
@@ -26,6 +27,9 @@ public class CameraShowActivity extends BaseActivity implements DataListener {
 
     @BindView(R.id.imageView)
     ImageView imageView;
+
+    @BindView(R.id.openGlSurface)
+    MyGLSurfaceView myGLSurfaceView;
 
     AndroidHradwareDecode mDecode;
 
@@ -50,7 +54,10 @@ public class CameraShowActivity extends BaseActivity implements DataListener {
 
     @Override
     public void onDirty(byte[] data) {
-        updateUI(data);
+        LogUtils.e("111111111111111111","长度："+data.length);
+        myGLSurfaceView.setYuvDataSize(640,480);
+        myGLSurfaceView.feedData(data, 2);
+//        updateUI(data);
     }
 
     @Override
@@ -58,7 +65,6 @@ public class CameraShowActivity extends BaseActivity implements DataListener {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                LogUtils.e("111111111111111111",System.currentTimeMillis());
                 imageView.setImageBitmap(bitmap);
             }
         });
