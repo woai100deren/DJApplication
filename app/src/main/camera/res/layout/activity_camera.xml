@@ -14,8 +14,8 @@
         android:orientation="vertical">
         <com.dj.camera.kotlin.MyGLSurfaceView
             android:id="@+id/openGlSurface"
-            android:layout_width="640px"
-            android:layout_height="480px"/>
+            android:layout_width="600px"
+            android:layout_height="600px"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

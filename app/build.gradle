@@ -132,6 +132,7 @@ dependencies {
     //    compile 'com.github.nkzawa:socket.io-client:0.3.0'
     compile project(':framework:utils')
     compile project(':framework:android-pdf-viewer')
+    api project(':framework:serverlibrary')
     compile project(':ocr_ui')
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'

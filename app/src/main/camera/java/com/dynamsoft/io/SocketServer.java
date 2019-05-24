@@ -155,7 +155,6 @@ public class SocketServer extends Thread {
 	}
 
 	public static  byte[] readInputStream(InputStream inputStream) throws IOException {
-		LogUtils.e("111111","开始1111："+System.currentTimeMillis());
 		byte[] buffer = new byte[1024];
 		int len = 0;
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -163,7 +162,6 @@ public class SocketServer extends Thread {
 			bos.write(buffer, 0, len);
 		}
 		bos.close();
-		LogUtils.e("111111","结束1111："+System.currentTimeMillis());
 		return bos.toByteArray();
 	}
 

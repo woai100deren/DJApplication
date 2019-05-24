@@ -28,6 +28,7 @@ import com.dj.mvvm.MvvmActivity;
 import com.dj.sk.SocketActivity;
 import com.dj.zip.ZipActivity;
 import com.dynamicso.DynamicsoActivity;
+import com.dynamsoft.CameraMinaShowActivity;
 import com.dynamsoft.CameraShowActivity;
 import com.eventbus.EventBusMainActivity;
 import com.eventbus.event.MessageEvent;
@@ -187,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.camera)
     protected void camera(){
-        startActivity(new Intent(MainActivity.this, CameraShowActivity.class));
+        startActivity(new Intent(MainActivity.this, CameraMinaShowActivity.class));
     }
 
     @Override

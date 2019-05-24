@@ -55,7 +55,9 @@ public class CameraShowActivity extends BaseActivity implements DataListener {
     @Override
     public void onDirty(byte[] data) {
         LogUtils.e("111111111111111111","长度："+data.length);
+
         myGLSurfaceView.setYuvDataSize(640,480);
+        myGLSurfaceView.setDisplayOrientation(90);
         myGLSurfaceView.feedData(data, 2);
 //        updateUI(data);
     }

@@ -83,6 +83,7 @@
         <activity android:name="com.dj.dagger.DaggerMainActvity" android:screenOrientation="portrait"/>
         <activity android:name="com.dj.camera.CameraActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dynamsoft.CameraShowActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.dynamsoft.CameraMinaShowActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
