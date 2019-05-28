@@ -1,13 +1,14 @@
 package com.dynamsoft.io;
 
-import com.dynamsoft.data.BufferManager;
-import com.dynamsoft.data.BufferPicManager;
+import com.dj.logutil.LogUtils;
+import com.dynamsoft.data.BufferPic5Manager;
 import com.dynamsoft.data.DataListener;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -16,7 +17,7 @@ public class SocketPicServer extends Thread {
 	private DataListener mDataListener;
 
 
-	private BufferManager mBufferManager;
+	private BufferPic5Manager mBufferManager;
 
 	public SocketPicServer() {
 	    
@@ -30,7 +31,8 @@ public class SocketPicServer extends Thread {
 		int len = 0;
 		BufferedInputStream inputStream = null;
 		Socket socket = null;
-		ByteArrayOutputStream byteArray = null;
+		ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+		byte [] headerBuffer = new byte[8];
 		byte [] buffer = new byte[1024];
 		byte data[];
 
@@ -101,30 +103,76 @@ public class SocketPicServer extends Thread {
 ////			}
 
 
-			//方案4
+//			//方案4
+//			mServer = new ServerSocket(1234);
+//			InputStream ins;
+//			BufferPicManager bufferPicManager = new BufferPicManager();
+//			bufferPicManager.setOnDataListener(mDataListener);
+//			while (!Thread.currentThread().isInterrupted()) {
+//				socket = mServer.accept();
+//				ins = socket.getInputStream();
+//				if (byteArray != null) {
+//					byteArray.reset();
+//				}else{
+//					byteArray = new ByteArrayOutputStream();
+//				}
+//				while( (len=ins.read(buffer)) != -1){
+//					byteArray.write(buffer, 0, len);
+//				}
+//				ins.close();
+//				bufferPicManager.fillBuffer(byteArray.toByteArray());
+//				if(!socket.isClosed()){
+//					socket.close();
+//				}
+//			}
+
+//			//方案5
+//			//监听1234端口
+//			mServer = new ServerSocket(1234);
+//			////监听客户端链接，调用accept()方法 accept方法是一个阻塞的方法，会阻塞当前线程
+//			socket = mServer.accept();
+//			inputStream = new BufferedInputStream(socket.getInputStream());
+//			mBufferManager = new BufferPic5Manager();
+//			mBufferManager.setOnDataListener(mDataListener);
+//			int i=0;
+//			while ((len=inputStream.read(buffer)) != -1) {
+//				if(i == 0){
+//				}
+//				byteArray.write(buffer, 0, len);
+//				i++;
+//				if(i == 20){
+//					i = 0;
+//					mBufferManager.fillBuffer(byteArray.toByteArray());
+//					byteArray.reset();
+//				}
+//
+//				if(Thread.currentThread().isInterrupted()){
+//					break;
+//				}
+//			}
+
+			//方案6
+			//监听1234端口
 			mServer = new ServerSocket(1234);
-			InputStream ins;
-			BufferPicManager bufferPicManager = new BufferPicManager();
-			bufferPicManager.setOnDataListener(mDataListener);
-			while (!Thread.currentThread().isInterrupted()) {
-				socket = mServer.accept();
-				ins = socket.getInputStream();
-				if (byteArray != null) {
-					byteArray.reset();
-				}else{
-					byteArray = new ByteArrayOutputStream();
+			////监听客户端链接，调用accept()方法 accept方法是一个阻塞的方法，会阻塞当前线程
+			socket = mServer.accept();
+			inputStream = new BufferedInputStream(socket.getInputStream());
+			mBufferManager = new BufferPic5Manager();
+			mBufferManager.setOnDataListener(mDataListener);
+
+			while ((len=inputStream.read(headerBuffer)) != -1) {
+				for(int i=0;i<headerBuffer.length;i++){
+					LogUtils.e("1111111111111","第"+i+"个值是："+headerBuffer[i]);
 				}
-				while( (len=ins.read(buffer)) != -1){
-					byteArray.write(buffer, 0, len);
+
+				if(Thread.currentThread().isInterrupted()){
+					break;
 				}
-				ins.close();
-				bufferPicManager.fillBuffer(byteArray.toByteArray());
-				if(!socket.isClosed()){
-					socket.close();
-				}
+				break;
 			}
+
+
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
@@ -148,6 +196,7 @@ public class SocketPicServer extends Thread {
 		}
 
 	}
+
 
 	public void setOnDataListener(DataListener listener) {
 		mDataListener = listener;
