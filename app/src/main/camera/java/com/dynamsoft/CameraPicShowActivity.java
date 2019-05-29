@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import com.dj.camera.view.PicturePlayerView;
 import com.dj.collection.BaseActivity;
 import com.dj.collection.R;
-import com.dj.logutil.LogUtils;
 import com.dynamsoft.data.DataListener;
-import com.dynamsoft.io.SocketPicServer;
+import com.dynamsoft.io.SocketPicNewServer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,7 +22,8 @@ public class CameraPicShowActivity extends BaseActivity implements DataListener 
     @BindView(R.id.imageView)
     ImageView imageView;
 
-    private Bitmap bitmap;
+    @BindView(R.id.picturePlayerView)
+    PicturePlayerView picturePlayerView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class CameraPicShowActivity extends BaseActivity implements DataListener 
         ButterKnife.bind(this);
 
 
-        SocketPicServer server = new SocketPicServer();
+        SocketPicNewServer server = new SocketPicNewServer();
         server.setOnDataListener(this);
         server.start();
     }
@@ -47,15 +48,6 @@ public class CameraPicShowActivity extends BaseActivity implements DataListener 
 
     @Override
     public void onDirty(final Bitmap bitmap) {
-        this.bitmap = bitmap;
-        handler.sendEmptyMessage(1);
+        picturePlayerView.drawBitmap(bitmap);
     }
-
-    Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            imageView.setImageBitmap(bitmap);
-        }
-    };
 }
