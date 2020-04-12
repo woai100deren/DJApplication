@@ -64,6 +64,7 @@ android {
                             'src/main/socket/java',
                             'src/main/dagger/java',
                             'src/main/camera/java',
+                            'src/main/service/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -85,6 +86,7 @@ android {
                            'src/main/socket/res',
                            'src/main/dagger/res',
                            'src/main/camera/res',
+                           'src/main/service/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -145,6 +147,7 @@ dependencies {
     compile files('libs/ocr-sdk.jar')
     compile files('libs/gson-2.2.4.jar')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:support-v4:26.1.0'
 }
 repositories {
     mavenCentral()

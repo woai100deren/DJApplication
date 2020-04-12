@@ -83,6 +83,19 @@
         <activity android:name="com.dynamsoft.CameraShowActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dynamsoft.CameraMinaShowActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dynamsoft.CameraPicShowActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.service.ServiceActivity" android:screenOrientation="portrait" android:process=":secondProcess"/>
+
+
+        <service android:name="com.service.MyService"/>
+        <service android:name="com.service.LocalService"/>
+        <service android:name="com.service.MessengerService"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.dj.messenger"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -40,6 +40,8 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.pdf.PdfActivity;
 import com.rxjava.RxJavaMainActivity;
+import com.service.ServiceActivity;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import butterknife.BindView;
@@ -190,6 +192,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.camera)
     protected void camera(){
         startActivity(new Intent(MainActivity.this, CameraPicShowActivity.class));
+    }
+
+    @OnClick(R.id.service)
+    protected void service(){
+        startActivity(new Intent(MainActivity.this, ServiceActivity.class));
     }
 
     @Override
