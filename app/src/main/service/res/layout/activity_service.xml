@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
     <Button
         android:id="@+id/startServiceBtn1"
@@ -17,4 +18,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="开启service方式3(跨进程通讯)"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <com.service.TagGroup
+        android:id="@+id/tag_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:tag_horizontalSpacing="8dp"
+        app:tag_verticalSpacing="8dp"
+        app:max_row="4"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <com.service.TagGroup
+        android:id="@+id/tag_group2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:tag_horizontalSpacing="8dp"
+        app:tag_verticalSpacing="8dp"
+        app:max_row="4"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <FrameLayout
+            android:id="@+id/fm2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_red">
+            <Button
+                android:id="@+id/fm2Btn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/fm1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_red"/>
+    </FrameLayout>
 </LinearLayout>

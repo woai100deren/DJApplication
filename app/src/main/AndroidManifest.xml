@@ -54,7 +54,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -83,7 +82,7 @@
         <activity android:name="com.dynamsoft.CameraShowActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dynamsoft.CameraMinaShowActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dynamsoft.CameraPicShowActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.service.ServiceActivity" android:screenOrientation="portrait" android:process=":secondProcess"/>
+        <activity android:name="com.service.ServiceActivity" android:screenOrientation="portrait"/>
 
 
         <service android:name="com.service.MyService"/>

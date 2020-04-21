@@ -11,11 +11,20 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dj.collection.BaseActivity;
+import com.dj.collection.MainActivity;
 import com.dj.collection.R;
+import com.dj.cpu.CpuTypeActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -25,12 +34,23 @@ public class ServiceActivity extends BaseActivity {
     private Messenger mMessengerService;
     boolean mBound = false;
 
+    @BindView(R.id.tag_group)
+    TagGroup tagGroup;
+
+    @BindView(R.id.tag_group2)
+    TagGroup tagGroup2;
+
+    Context context;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_service);
         ButterKnife.bind(this);
+        context = this;
+
+        initTags();
+        initTags2();
     }
 
     @OnClick(R.id.startServiceBtn1)
@@ -123,9 +143,78 @@ public class ServiceActivity extends BaseActivity {
         super.onStop();
         // Unbind from the service
         if (mBound) {
-            unbindService(mConnection);
+//            unbindService(mConnection);
             unbindService(mConnection2);
             mBound = false;
+        }
+    }
+
+
+    private void initTags() {
+        String[] tags = TagGenarator.generate(10, 6);
+        List<TagGroup.TagViewHolder> viewHolders = new ArrayList<>();
+        for (String tag: tags) {
+            TagViewHolder viewHolder = new TagViewHolder(LayoutInflater.from(context).inflate(R.layout.view_tag, tagGroup, false),
+                    tag);
+            viewHolders.add(viewHolder);
+        }
+        TagViewHolder moreHolder = new TagViewHolder(LayoutInflater.from(context).inflate(R.layout.view_tag, tagGroup, false),
+                "更多 ...");
+        tagGroup.setTags(viewHolders, moreHolder);
+    }
+
+    private void initTags2() {
+        String[] tags = TagGenarator.generate(20, 6);
+        List<TagGroup.TagViewHolder> viewHolders = new ArrayList<>();
+        for (String tag: tags) {
+            TagViewHolder viewHolder = new TagViewHolder(LayoutInflater.from(context).inflate(R.layout.view_tag, tagGroup, false),
+                    tag);
+            viewHolders.add(viewHolder);
+        }
+        TagViewHolder moreHolder = new TagViewHolder(LayoutInflater.from(context).inflate(R.layout.view_tag, tagGroup, false),
+                "更多 ...");
+        tagGroup2.setTags(viewHolders, moreHolder);
+    }
+
+    @OnClick(R.id.fm1)
+    protected void clickfm1(){
+        Log.e("onclik","fm1");
+    }
+
+    @OnClick(R.id.fm2)
+    protected void clickfm2(){
+        Log.e("onclik","fm2");
+    }
+
+    @OnClick(R.id.fm2Btn)
+    protected void clickfm2Btn(){
+        Log.e("onclik","fm2Btn");
+    }
+
+    public class TagViewHolder implements TagGroup.TagViewHolder {
+
+        public String content;
+
+        public View rootView;
+
+        public TextView tagView;
+
+        public TagViewHolder(View itemView, final String content) {
+            this.rootView = itemView;
+            tagView = (TextView) itemView.findViewById(R.id.tag);
+            tagView.setText(content);
+
+            tagView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(context, "点击了：" + content, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        @Override
+        public View getView() {
+            return rootView;
         }
     }
 }
