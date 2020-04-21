@@ -33,7 +33,7 @@ public class TagGroup extends ViewGroup {
     }
 
     public TagGroup(Context context,AttributeSet attrs) {
-        super(context,attrs,0);
+        this(context,attrs,0);
     }
 
     public TagGroup(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -42,11 +42,11 @@ public class TagGroup extends ViewGroup {
         default_vertical_spacing = dp2px(8.0f);
         MAX_ROW_COUNT = Integer.MAX_VALUE;
 
-        final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.DjTagGroup);
+        final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TagGroup);
         try {
-            horizontalSpacing = (int) typedArray.getDimension(R.styleable.DjTagGroup_tag_horizontalSpacing, default_horizontal_spacing);
-            verticalSpacing = (int) typedArray.getDimension(R.styleable.DjTagGroup_tag_verticalSpacing, default_vertical_spacing);
-            maxRow = typedArray.getInt(R.styleable.DjTagGroup_max_row, MAX_ROW_COUNT);
+            horizontalSpacing = (int) typedArray.getDimension(R.styleable.TagGroup_tag_horizontalSpacing, default_horizontal_spacing);
+            verticalSpacing = (int) typedArray.getDimension(R.styleable.TagGroup_tag_verticalSpacing, default_vertical_spacing);
+            maxRow = typedArray.getInt(R.styleable.TagGroup_max_row, MAX_ROW_COUNT);
         } finally {
             typedArray.recycle();
         }
@@ -138,7 +138,6 @@ public class TagGroup extends ViewGroup {
         if (moreTagHolder != null) {
             unTagCount--;
         }
-
         for (int i = 0; i < unTagCount; i++) {
             final View child = getChildAt(i);
             final int width = child.getMeasuredWidth();
