@@ -65,6 +65,7 @@ android {
                             'src/main/dagger/java',
                             'src/main/camera/java',
                             'src/main/service/java',
+                            'src/main/customclock/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -87,6 +88,7 @@ android {
                            'src/main/dagger/res',
                            'src/main/camera/res',
                            'src/main/service/res',
+                           'src/main/customclock/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }

@@ -23,6 +23,7 @@ import com.dj.collection.network.listener.OnDownloadListener;
 import com.dj.collection.utils.Utils;
 import com.dj.cpu.CPUFrameworkHelper;
 import com.dj.cpu.CpuTypeActivity;
+import com.dj.customclock.CustomClockActivity;
 import com.dj.dagger.DaggerMainActvity;
 import com.dj.mvvm.MvvmActivity;
 import com.dj.sk.SocketActivity;
@@ -197,6 +198,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.service)
     protected void service(){
         startActivity(new Intent(MainActivity.this, ServiceActivity.class));
+    }
+
+    @OnClick(R.id.clock)
+    protected void clock(){
+        startActivity(new Intent(MainActivity.this, CustomClockActivity.class));
     }
 
     @Override

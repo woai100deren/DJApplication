@@ -83,6 +83,7 @@
         <activity android:name="com.dynamsoft.CameraMinaShowActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dynamsoft.CameraPicShowActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.service.ServiceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.dj.customclock.CustomClockActivity" android:screenOrientation="portrait"/>
 
 
         <service android:name="com.service.MyService"/>
