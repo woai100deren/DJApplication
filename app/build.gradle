@@ -3,13 +3,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.dj.collection"
         minSdkVersion 18
-        targetSdkVersion 25
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         vectorDrawables.useSupportLibrary = true//适配5.0以下矢量图
@@ -66,6 +67,7 @@ android {
                             'src/main/camera/java',
                             'src/main/service/java',
                             'src/main/customclock/java',
+                            'src/main/ut/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -100,6 +102,19 @@ android {
     defaultConfig {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            outputs.upToDateWhen { false }
+            showStandardStreams = true
+        }
+    }
+
+    //在写本地单元测试的时候，遇到android.jar某个方法没有被mock的情况，通过如下配置，让gradle系统为该方法返回默认值
+    testOptions{
+        unitTests.returnDefaultValues = true
+    }
 }
 
 allprojects {
@@ -112,10 +127,11 @@ allprojects {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
     compile(name: 'live-pusher-resources-3.3.5', ext: 'aar')
     compile(name: 'AlivcReporter', ext: 'aar')
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support:design:28.0.0'
+    compile 'com.android.support:appcompat-v7:28.0.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.jakewharton:butterknife:8.8.1'
@@ -124,8 +140,8 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'io.reactivex:rxandroid:1.2.1'
     //    compile 'com.squareup.okhttp3:okhttp:3.8.1'
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:1.10.19'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:3.5.2'
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:v1.9.7'
@@ -150,6 +166,10 @@ dependencies {
     compile files('libs/gson-2.2.4.jar')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:support-v4:26.1.0'
+
+    implementation 'com.github.AlexLiuSheng:CheckVersionLib:2.4_appcompat'
+
+    implementation 'com.android.support:multidex:1.0.3'
 }
 repositories {
     mavenCentral()

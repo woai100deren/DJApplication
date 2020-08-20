@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.support.multidex.MultiDexApplication;
 
 import com.alivc.live.pusher.AlivcLivePusher;
 import com.alivc.live.pusher.LogUtil;
@@ -18,7 +19,7 @@ import com.tencent.bugly.crashreport.CrashReport;
  * Created by wangjing4 on 2017/7/20.
  */
 
-public class DJApplication extends Application {
+public class DJApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();

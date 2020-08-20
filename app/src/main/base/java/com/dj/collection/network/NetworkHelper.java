@@ -26,7 +26,8 @@ public class NetworkHelper {
     private static final String TAG = NetworkHelper.class.getName();
     private static final int DEFAULT_TIMEOUT = 10;//网络超时时间（单位秒）
 //    public static final String BASE_URL = "http://www.smallsix.com.cn/upload/";//网络请求URL地址
-    public static final String BASE_URL = "https://mobilelive.dz11.com/";//网络请求URL地址
+//    public static final String BASE_URL = "https://mobilelive.dz11.com/";//网络请求URL地址
+    public static final String BASE_URL = "http://app_version.wxrrd.com/";//网络请求URL地址
     private Retrofit retrofit;
     private NetworkService mNetworkService;
 
@@ -72,4 +73,11 @@ public class NetworkHelper {
         toSubscribe(observable, new NetworkSubscriber(responseListener));
     }
 
+    /**
+     * app升级信息
+     */
+    public void checkAppUpdate(String appid,ResponseListener responseListener){
+        Observable observable = mNetworkService.checkAppUpdate(appid);
+        toSubscribe(observable, new NetworkSubscriber(responseListener));
+    }
 }

@@ -10,6 +10,8 @@ import android.webkit.WebView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.allenliu.versionchecklib.v2.AllenVersionChecker;
+import com.allenliu.versionchecklib.v2.builder.UIData;
 import com.anim.AnimatedVectorActivity;
 import com.anim.DataChangeActivity;
 import com.bd.scan.BankScanActivity;
@@ -18,13 +20,18 @@ import com.coordinator.CoordinatorActivity;
 import com.detail.DetailActivity;
 import com.dj.bugly.BuglyActivity;
 import com.dj.camera.CameraActivity;
+import com.dj.collection.bean.AppInfoBean;
+import com.dj.collection.bean.SoResponseBean;
 import com.dj.collection.network.HttpUtils;
+import com.dj.collection.network.NetworkHelper;
 import com.dj.collection.network.listener.OnDownloadListener;
+import com.dj.collection.network.listener.ResponseListener;
 import com.dj.collection.utils.Utils;
 import com.dj.cpu.CPUFrameworkHelper;
 import com.dj.cpu.CpuTypeActivity;
 import com.dj.customclock.CustomClockActivity;
 import com.dj.dagger.DaggerMainActvity;
+import com.dj.logutil.LogUtils;
 import com.dj.mvvm.MvvmActivity;
 import com.dj.sk.SocketActivity;
 import com.dj.zip.ZipActivity;
@@ -84,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
 //                return true;
 //            }
 //        });
+
+
+        checkAppInfo();
     }
 
     @OnClick(R.id.jumpBtn)
@@ -243,4 +253,36 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private ResponseListener<AppInfoBean> responseListener = new ResponseListener<AppInfoBean>() {
+        @Override
+        public void onStart() {
+
+        }
+
+        @Override
+        public void onSuccess(AppInfoBean data) {
+            LogUtils.e(data.toString());
+            AllenVersionChecker
+                    .getInstance()
+                    .downloadOnly(
+                            UIData.create().setDownloadUrl(data.getUrl()).setContent(data.getContext()).setTitle("客户端更新")
+                    )
+                    .executeMission(MainActivity.this);
+        }
+
+        @Override
+        public void onFailed(Throwable e) {
+            LogUtils.e(e.getMessage());
+        }
+
+        @Override
+        public void onFinish() {
+
+        }
+    };
+
+    //检查客户端更新
+    private void checkAppInfo(){
+        NetworkHelper.getInstance().checkAppUpdate("1",responseListener);
+    }
 }

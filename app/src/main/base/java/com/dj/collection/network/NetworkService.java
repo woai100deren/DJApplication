@@ -1,5 +1,6 @@
 package com.dj.collection.network;
 
+import com.dj.collection.bean.AppInfoBean;
 import com.dj.collection.bean.SoResponseBean;
 
 import java.util.List;
@@ -13,4 +14,7 @@ public interface NetworkService {
 //    Observable<SoResponseBean> getSoDownloadInfo();
     @GET("video/Omnibus/getInfo")
     Observable<SoResponseBean> getSoDownloadInfo(@Query("oid") String oid);
+
+    @GET("export/version")
+    Observable<AppInfoBean> checkAppUpdate(@Query("appid") String appid);
 }
