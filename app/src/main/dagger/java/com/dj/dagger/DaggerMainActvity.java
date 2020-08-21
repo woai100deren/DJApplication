@@ -2,7 +2,7 @@ package com.dj.dagger;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.Button;
 
 import com.dj.collection.BaseActivity;

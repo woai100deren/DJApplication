@@ -1,6 +1,7 @@
 package com.dj.bugly.annotation;
 
-import android.support.annotation.IdRes;
+
+import androidx.annotation.IdRes;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

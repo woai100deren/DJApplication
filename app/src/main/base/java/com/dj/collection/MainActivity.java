@@ -2,13 +2,12 @@ package com.dj.collection;
 
 import android.content.Intent;
 import android.os.Environment;
-import android.support.annotation.Dimension;
-import android.support.constraint.solver.widgets.Rectangle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.allenliu.versionchecklib.v2.AllenVersionChecker;
 import com.allenliu.versionchecklib.v2.builder.UIData;

@@ -1,7 +1,7 @@
 package com.dj.customclock;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.dj.collection.BaseActivity;
 import com.dj.collection.R;

@@ -1,7 +1,7 @@
 package com.dj.bugly;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.dj.bugly.exception.MyException;
 import com.dj.collection.BaseActivity;

@@ -1,17 +1,16 @@
 package com.dj.collection;
 
-import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
-import android.support.multidex.MultiDexApplication;
+
+import androidx.multidex.MultiDexApplication;
 
 import com.alivc.live.pusher.AlivcLivePusher;
 import com.alivc.live.pusher.LogUtil;
 import com.dj.logutil.LogUtils;
-import com.orhanobut.logger.Logger;
 import com.tencent.bugly.crashreport.CrashReport;
 
 /**

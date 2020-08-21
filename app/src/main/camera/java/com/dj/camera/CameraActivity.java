@@ -3,7 +3,7 @@ package com.dj.camera;
 import android.hardware.Camera;
 import android.media.MediaCodec;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.WindowManager;

@@ -4,8 +4,9 @@
 package com.baidu.ocr.ui.camera;
 
 import android.graphics.Rect;
-import android.support.annotation.IntDef;
 import android.view.View;
+
+import androidx.annotation.IntDef;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
