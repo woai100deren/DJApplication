@@ -184,6 +184,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
     //google 性能监控（需要设备有google服务才行）
     implementation 'com.google.firebase:firebase-perf:19.0.8'
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 }
 repositories {
     mavenCentral()
