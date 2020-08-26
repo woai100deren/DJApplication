@@ -30,6 +30,7 @@ import com.dj.cpu.CPUFrameworkHelper;
 import com.dj.cpu.CpuTypeActivity;
 import com.dj.customclock.CustomClockActivity;
 import com.dj.dagger.DaggerMainActvity;
+import com.dj.event.DispatchEventActivity;
 import com.dj.logutil.LogUtils;
 import com.dj.mvvm.MvvmActivity;
 import com.dj.sk.SocketActivity;
@@ -213,6 +214,11 @@ public class MainActivity extends AppCompatActivity {
     protected void clock(){
         startActivity(new Intent(MainActivity.this, CustomClockActivity.class));
     }
+    @OnClick(R.id.dispatchEvent)
+    protected void dispatchEvent(){
+        startActivity(new Intent(MainActivity.this, DispatchEventActivity.class));
+    }
+
 
     @Override
     public void onDestroy() {

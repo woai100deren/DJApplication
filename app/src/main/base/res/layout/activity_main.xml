@@ -140,6 +140,12 @@
                 android:layout_height="wrap_content"
                 android:text="自定义时钟"
                 android:id="@+id/clock"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="事件分发"
+                android:id="@+id/dispatchEvent"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
