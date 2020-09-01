@@ -85,6 +85,7 @@
         <activity android:name="com.service.ServiceActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dj.customclock.CustomClockActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dj.event.DispatchEventActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.dj.download.DownloadActivity" android:screenOrientation="portrait"/>
 
 
         <service android:name="com.service.MyService"/>

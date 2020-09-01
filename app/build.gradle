@@ -73,6 +73,7 @@ android {
                             'src/main/customclock/java',
                             'src/main/ut/java',
                             'src/main/dispatchEvent/java',
+                            'src/main/asyncTaskDownload/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -97,6 +98,7 @@ android {
                            'src/main/service/res',
                            'src/main/customclock/res',
                            'src/main/dispatchEvent/res',
+                           'src/main/asyncTaskDownload/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -188,6 +190,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-perf:19.0.8'
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
+
+    //okhttp3
+    implementation 'com.squareup.okhttp3:okhttp:4.8.1'
 }
 repositories {
     mavenCentral()

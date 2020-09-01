@@ -146,6 +146,12 @@
                 android:layout_height="wrap_content"
                 android:text="事件分发"
                 android:id="@+id/dispatchEvent"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AsyncTask多线程断点下载"
+                android:id="@+id/asyncTaskDownload"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -30,6 +30,7 @@ import com.dj.cpu.CPUFrameworkHelper;
 import com.dj.cpu.CpuTypeActivity;
 import com.dj.customclock.CustomClockActivity;
 import com.dj.dagger.DaggerMainActvity;
+import com.dj.download.DownloadActivity;
 import com.dj.event.DispatchEventActivity;
 import com.dj.logutil.LogUtils;
 import com.dj.mvvm.MvvmActivity;
@@ -218,7 +219,10 @@ public class MainActivity extends AppCompatActivity {
     protected void dispatchEvent(){
         startActivity(new Intent(MainActivity.this, DispatchEventActivity.class));
     }
-
+    @OnClick(R.id.asyncTaskDownload)
+    protected void asyncTaskDownload(){
+        startActivity(new Intent(MainActivity.this, DownloadActivity.class));
+    }
 
     @Override
     public void onDestroy() {
