@@ -11,7 +11,7 @@ import com.orhanobut.logger.Logger;
 
 public class LogUtils {
     public static final String LOG_TAG = "com.dj";
-    private static boolean DEBUG = false;
+    private static boolean DEBUG = true;
     private static boolean NATIVE_LOG = true;
 
     public static void setDebug(boolean DEBUG) {
