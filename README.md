@@ -1,10 +1,17 @@
 # 个人学习相关
 
-1. event bus示例
-2. RxJava示例
-3. 获取CPU类型
-4. coordinator示例
-5. MVVM示例
-6. retrofit示例
-7. 指纹识别示例
-8. 百度AI扫描识别银行卡、身份证等示例
+- event bus示例
+- RxJava示例
+- 获取CPU类型
+- coordinator示例
+- MVVM示例
+- retrofit示例
+- 指纹识别示例
+- 百度AI扫描识别银行卡、身份证等示例
+- PDF展示
+- socket示例
+- dagger
+- 自定义时钟（自定义view）
+- 事件分发
+- AsyncTask多线程断点下载
+- Room数据库框架基本使用
