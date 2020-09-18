@@ -34,6 +34,7 @@ import com.dj.download.DownloadActivity;
 import com.dj.event.DispatchEventActivity;
 import com.dj.logutil.LogUtils;
 import com.dj.mvvm.MvvmActivity;
+import com.dj.room.RoomActivity;
 import com.dj.sk.SocketActivity;
 import com.dj.zip.ZipActivity;
 import com.dynamicso.DynamicsoActivity;
@@ -222,6 +223,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.asyncTaskDownload)
     protected void asyncTaskDownload(){
         startActivity(new Intent(MainActivity.this, DownloadActivity.class));
+    }
+
+    @OnClick(R.id.roomUse)
+    protected void roomUse(){
+        startActivity(new Intent(MainActivity.this, RoomActivity.class));
     }
 
     @Override

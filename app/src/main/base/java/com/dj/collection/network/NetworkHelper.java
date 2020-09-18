@@ -1,5 +1,7 @@
 package com.dj.collection.network;
 
+import android.os.Build;
+
 import com.dj.collection.network.factory.FastJsonConverterFactory;
 import com.dj.collection.network.listener.ResponseListener;
 import com.dj.collection.network.subscriber.NetworkSubscriber;
@@ -40,7 +42,10 @@ public class NetworkHelper {
         //手动创建一个OkHttpClient并设置超时时间
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
-        builder.sslSocketFactory(HttpsUtils.getSslSocketFactory());
+        //忽略ssl证书,android10及以上的版本就不用了
+        if (Build.VERSION.SDK_INT < 29) {
+            builder.sslSocketFactory(HttpsUtils.getSslSocketFactory());
+        }
         builder.hostnameVerifier(new HostnameVerifier() {
             @Override
             public boolean verify(String hostname, SSLSession session) {

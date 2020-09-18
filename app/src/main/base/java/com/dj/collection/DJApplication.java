@@ -19,9 +19,11 @@ import com.tencent.bugly.crashreport.CrashReport;
  */
 
 public class DJApplication extends MultiDexApplication {
+    private static Context context;
     @Override
     public void onCreate() {
         super.onCreate();
+        context = this;
 
         CrashReport.initCrashReport(getApplicationContext(), "0fa389210e", false);
 
@@ -48,5 +50,9 @@ public class DJApplication extends MultiDexApplication {
         public void onReceive(Context context, Intent intent) {
 
         }
+    }
+
+    public static Context applicationContext(){
+        return context;
     }
 }
