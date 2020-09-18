@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import com.dj.collection.BaseActivity;
 import com.dj.collection.R;
 import com.dj.room.db.DBManager;
+import com.dj.room.db.DBOperateListener;
 import com.dj.room.db.table.User;
 
 public class RoomActivity extends BaseActivity {
@@ -36,6 +37,22 @@ public class RoomActivity extends BaseActivity {
                 }else {
                     Toast.makeText(RoomActivity.this, user.toString(), Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        findViewById(R.id.asynReadBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBManager.getInstance().findUserByName("wangjing", new DBOperateListener<User>() {
+                    @Override
+                    public void onComplete(User user) {
+                        if(user == null){
+                            Toast.makeText(RoomActivity.this, "暂无数据", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(RoomActivity.this, user.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
     }

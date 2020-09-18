@@ -7,7 +7,7 @@
         android:id="@+id/saveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="存储数据"
+        android:text="同步存储数据"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -15,8 +15,17 @@
         android:id="@+id/readBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="读取数据"
+        android:text="同步读取数据"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/saveBtn"/>
+
+    <Button
+        android:id="@+id/asynReadBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="异步读取数据"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/readBtn"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

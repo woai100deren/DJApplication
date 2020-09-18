@@ -9,6 +9,8 @@ import com.dj.room.db.table.User;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
+
 @Dao
 public interface UserDao {
     @Query("SELECT * FROM user")
@@ -22,4 +24,7 @@ public interface UserDao {
 
     @Query("SELECT * FROM user WHERE username LIKE :username LIMIT 1")
     User findByName(String username);
+
+    @Query("SELECT * FROM user WHERE username LIKE :username LIMIT 1")
+    Flowable<User> asynFindByName(String username);
 }
