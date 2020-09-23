@@ -36,6 +36,7 @@ import com.dj.logutil.LogUtils;
 import com.dj.mvvm.MvvmActivity;
 import com.dj.room.RoomActivity;
 import com.dj.sk.SocketActivity;
+import com.dj.ws.WSActivity;
 import com.dj.zip.ZipActivity;
 import com.dynamicso.DynamicsoActivity;
 import com.dynamsoft.CameraMinaShowActivity;
@@ -228,6 +229,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.roomUse)
     protected void roomUse(){
         startActivity(new Intent(MainActivity.this, RoomActivity.class));
+    }
+
+    @OnClick(R.id.webservice)
+    protected void webservice(){
+        startActivity(new Intent(MainActivity.this, WSActivity.class));
     }
 
     @Override

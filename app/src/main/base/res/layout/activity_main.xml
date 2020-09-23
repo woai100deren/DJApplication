@@ -158,6 +158,12 @@
                 android:layout_height="wrap_content"
                 android:text="Room使用"
                 android:id="@+id/roomUse"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请求webservice"
+                android:id="@+id/webservice"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
