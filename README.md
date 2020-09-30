@@ -15,3 +15,4 @@
 - 事件分发
 - AsyncTask多线程断点下载
 - Room数据库框架基本使用
+- WebSocket（对应git仓库中的websocket工程使用）
