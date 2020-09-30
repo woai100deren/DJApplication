@@ -114,6 +114,7 @@ public class WebSocketNetworkHelper {
             protected void onClose() {
                 LogUtils.e(TAG, "webSocket断开");
                 mWebSocket = null;
+                webSocketSubscriber = null;
             }
         };
         RxWebSocket.get(BASE_URL).subscribe(webSocketSubscriber);
