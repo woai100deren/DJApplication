@@ -75,6 +75,10 @@ public class WebSocketNetworkHelper {
     }
 
     public void connect(){
+        if(mWebSocket!=null){
+            LogUtils.e(TAG, "webSocket已经连接成功了，不能再连接。");
+            return;
+        }
         webSocketSubscriber = new WebSocketSubscriber() {
             @Override
             public void onOpen(@NonNull WebSocket webSocket) {
