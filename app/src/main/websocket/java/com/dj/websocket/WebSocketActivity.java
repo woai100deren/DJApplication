@@ -9,6 +9,11 @@ import androidx.databinding.DataBindingUtil;
 import com.dj.collection.BaseActivity;
 import com.dj.collection.R;
 import com.dj.collection.databinding.ActivityWebsocketBinding;
+import com.dj.logutil.LogUtils;
+import com.eventbus.event.MessageEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -47,11 +52,19 @@ public class WebSocketActivity extends BaseActivity {
                 WebSocketNetworkHelper.getInstance().asyncSendMessage("我是一条异步发送的消息");
             }
         });
+
+        EventBus.getDefault().register(this);
+    }
+
+    @Subscribe
+    public void onMessageEvent(WebSocketEvent event){
+        LogUtils.e("消息："+event.message+",线程："+Thread.currentThread());
     }
 
     @Override
     protected void onDestroy() {
         WebSocketNetworkHelper.getInstance().closeConnect();
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

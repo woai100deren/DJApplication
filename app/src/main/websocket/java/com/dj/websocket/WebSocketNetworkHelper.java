@@ -13,6 +13,8 @@ import com.dj.collection.network.listener.ResponseListener;
 import com.dj.collection.network.subscriber.NetworkSubscriber;
 import com.dj.logutil.LogUtils;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
@@ -75,8 +77,8 @@ public class WebSocketNetworkHelper {
     }
 
     public void connect(){
-        if(mWebSocket!=null){
-            LogUtils.e(TAG, "webSocket已经连接成功了，不能再连接。");
+        if(webSocketSubscriber!=null){
+            LogUtils.e(TAG, "webSocket已经发起了连接，不能再连接。");
             return;
         }
         webSocketSubscriber = new WebSocketSubscriber() {
@@ -89,12 +91,18 @@ public class WebSocketNetworkHelper {
             @Override
             public void onMessage(@NonNull String text) {
                 Log.e(TAG, "收到服务器返回数据String:" + text);
+
+                //如果此处返回在主线程，如果需要处理的数据较大，个人认为再开线程池进行数据转换，然后在转换完之后，EventBus将数据传递出去。
+                EventBus.getDefault().post(new WebSocketEvent(text));
             }
 
             @Override
             public void onMessage(@NonNull ByteString byteString) {
                 LogUtils.e(TAG, "收到服务器返回数据ByteString:" + byteString.toString());
 //                ResponseManager.handleResponse(byteString,WebSocketActivity.this);
+
+                //如果此处返回在主线程，如果需要处理的数据较大，个人认为再开线程池进行数据转换，然后在转换完之后，EventBus将数据传递出去。
+                EventBus.getDefault().post(new WebSocketEvent(byteString.toString()));
             }
 
             @Override
