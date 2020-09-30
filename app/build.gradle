@@ -76,6 +76,7 @@ android {
                             'src/main/asyncTaskDownload/java',
                             'src/main/webservice/java',
                             'src/main/room/java',
+                            'src/main/websocket/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -103,6 +104,7 @@ android {
                            'src/main/asyncTaskDownload/res',
                            'src/main/webservice/res',
                            'src/main/room/res',
+                           'src/main/websocket/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -217,6 +219,12 @@ dependencies {
 
     //xml转json
     implementation 'com.github.smart-fun:XmlToJson:1.4.5'
+
+    //websocket第三方封装的网络请求
+    implementation  'com.dhh:websocket2:2.1.4'
+
+    //google权限申请框架
+    implementation 'pub.devrel:easypermissions:3.0.0'
 }
 repositories {
     mavenCentral()

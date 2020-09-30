@@ -1,5 +1,6 @@
 package com.dj.collection;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Environment;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.webkit.WebView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.allenliu.versionchecklib.v2.AllenVersionChecker;
@@ -36,6 +38,7 @@ import com.dj.logutil.LogUtils;
 import com.dj.mvvm.MvvmActivity;
 import com.dj.room.RoomActivity;
 import com.dj.sk.SocketActivity;
+import com.dj.websocket.WebSocketActivity;
 import com.dj.ws.WSActivity;
 import com.dj.zip.ZipActivity;
 import com.dynamicso.DynamicsoActivity;
@@ -55,12 +58,22 @@ import com.service.ServiceActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import pub.devrel.easypermissions.EasyPermissions;
+import pub.devrel.easypermissions.PermissionRequest;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
     private static final String TAG = MainActivity.class.getName();
+    private String[] perms = {Manifest.permission.CAMERA,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CALL_PHONE,
+            Manifest.permission.READ_PHONE_STATE};
     @BindView(R.id.textView)
     TextView textView;
 
@@ -97,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         checkAppInfo();
+        requestPermissions();
     }
 
     @OnClick(R.id.jumpBtn)
@@ -236,6 +250,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, WSActivity.class));
     }
 
+    @OnClick(R.id.websocket)
+    protected void websocket(){
+        startActivity(new Intent(MainActivity.this, WebSocketActivity.class));
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -305,5 +324,28 @@ public class MainActivity extends AppCompatActivity {
     //检查客户端更新
     private void checkAppInfo(){
         NetworkHelper.getInstance().checkAppUpdate("1",responseListener);
+    }
+
+    //权限申请
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    private void requestPermissions(){
+        EasyPermissions.requestPermissions(this, "拍照、定位、电话、存储权限申请",
+                123, perms);
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+        //申请权限成功
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        //申请权限失败
     }
 }
