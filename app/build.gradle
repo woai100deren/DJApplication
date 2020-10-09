@@ -77,6 +77,7 @@ android {
                             'src/main/webservice/java',
                             'src/main/room/java',
                             'src/main/websocket/java',
+                            'src/main/photoview/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -105,6 +106,7 @@ android {
                            'src/main/webservice/res',
                            'src/main/room/res',
                            'src/main/websocket/res',
+                           'src/main/photoview/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -225,6 +227,9 @@ dependencies {
 
     //google权限申请框架
     implementation 'pub.devrel:easypermissions:3.0.0'
+
+    //图片浏览
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 }
 repositories {
     mavenCentral()

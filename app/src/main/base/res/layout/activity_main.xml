@@ -170,6 +170,12 @@
                 android:layout_height="wrap_content"
                 android:text="请求websocket"
                 android:id="@+id/websocket"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图片查看器"
+                android:id="@+id/photoview"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

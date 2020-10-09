@@ -36,6 +36,7 @@ import com.dj.download.DownloadActivity;
 import com.dj.event.DispatchEventActivity;
 import com.dj.logutil.LogUtils;
 import com.dj.mvvm.MvvmActivity;
+import com.dj.photoview.PhotoViewActivity;
 import com.dj.room.RoomActivity;
 import com.dj.sk.SocketActivity;
 import com.dj.websocket.WebSocketActivity;
@@ -253,6 +254,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     @OnClick(R.id.websocket)
     protected void websocket(){
         startActivity(new Intent(MainActivity.this, WebSocketActivity.class));
+    }
+
+    @OnClick(R.id.photoview)
+    protected void photoview(){
+        startActivity(new Intent(MainActivity.this, PhotoViewActivity.class));
     }
 
     @Override
