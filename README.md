@@ -16,3 +16,4 @@
 - AsyncTask多线程断点下载
 - Room数据库框架基本使用
 - WebSocket（对应git仓库中的websocket工程使用）
+- photoview：多图片查看器，支持手势缩放、双击缩放、滑动上下一页
