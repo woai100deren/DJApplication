@@ -32,7 +32,6 @@ import com.dj.collection.utils.Utils;
 import com.dj.cpu.CPUFrameworkHelper;
 import com.dj.cpu.CpuTypeActivity;
 import com.dj.customclock.CustomClockActivity;
-import com.dj.dagger.DaggerMainActvity;
 import com.dj.download.DownloadActivity;
 import com.dj.event.DispatchEventActivity;
 import com.dj.logutil.LogUtils;
@@ -214,10 +213,10 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         startActivity(new Intent(MainActivity.this, SocketActivity.class));
     }
 
-    @OnClick(R.id.dagger)
-    protected void dagger(){
-        startActivity(new Intent(MainActivity.this, DaggerMainActvity.class));
-    }
+//    @OnClick(R.id.dagger)
+//    protected void dagger(){
+//        startActivity(new Intent(MainActivity.this, DaggerMainActvity.class));
+//    }
 
     @OnClick(R.id.camera)
     protected void camera(){
