@@ -1,9 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'com.google.firebase.firebase-perf'
+
+import com.dj.plugin.AspectjPlugin
+apply plugin: AspectjPlugin
+
+//apply plugin: 'com.avery.android.aspectj'
 
 android {
     compileSdkVersion 29
@@ -78,6 +81,7 @@ android {
                             'src/main/room/java',
                             'src/main/websocket/java',
                             'src/main/photoview/java',
+                            'src/main/customAnnotations/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -107,6 +111,7 @@ android {
                            'src/main/room/res',
                            'src/main/websocket/res',
                            'src/main/photoview/res',
+                           'src/main/customAnnotations/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -201,10 +206,6 @@ dependencies {
     implementation 'com.github.AlexLiuSheng:CheckVersionLib:2.4_appcompat'
 
     implementation 'com.android.support:multidex:1.0.3'
-    //google firebase 统计
-    implementation 'com.google.firebase:firebase-analytics:17.5.0'
-    //google 性能监控（需要设备有google服务才行）
-    implementation 'com.google.firebase:firebase-perf:19.0.8'
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 
@@ -230,6 +231,8 @@ dependencies {
 
     //图片浏览
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+
+//    implementation 'org.aspectj:aspectjrt:1.8.9'
 }
 repositories {
     mavenCentral()

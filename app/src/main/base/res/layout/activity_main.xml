@@ -175,7 +175,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="图片查看器"
-                android:id="@+id/photoview"/>
+                android:id="@+id/photoview"/>\
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自定义注解+AspectJ"
+                android:id="@+id/annotation"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

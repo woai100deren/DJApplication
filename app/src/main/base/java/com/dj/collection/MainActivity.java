@@ -20,6 +20,7 @@ import com.bigimage.BigImageActivity;
 import com.coordinator.CoordinatorActivity;
 import com.detail.DetailActivity;
 import com.dj.bugly.BuglyActivity;
+import com.dj.ca.CustomAnnotationsActivity;
 import com.dj.camera.CameraActivity;
 import com.dj.collection.bean.AppInfoBean;
 import com.dj.collection.bean.SoResponseBean;
@@ -259,6 +260,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     @OnClick(R.id.photoview)
     protected void photoview(){
         startActivity(new Intent(MainActivity.this, PhotoViewActivity.class));
+    }
+
+    @OnClick(R.id.annotation)
+    protected void annotation(){
+        startActivity(new Intent(MainActivity.this, CustomAnnotationsActivity.class));
     }
 
     @Override
