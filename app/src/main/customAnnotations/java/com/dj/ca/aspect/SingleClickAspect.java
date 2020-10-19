@@ -3,6 +3,7 @@ package com.dj.ca.aspect;
 import android.util.Log;
 import android.view.View;
 
+import com.dj.ca.ann.SingleClick;
 import com.dj.collection.R;
 import com.dj.logutil.LogUtils;
 
@@ -10,7 +11,9 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 
+import java.lang.reflect.Method;
 import java.util.Calendar;
 
 @Aspect
@@ -20,11 +23,13 @@ public class SingleClickAspect {
 
 
     //execution方法里面要填写你自己的完整的包名路径：xxx.xxx.xxx.SingleClick
-    @Pointcut("execution(@com.dj.ca.ann.SingleClick * *(..))")
-    public void methodAnnotated() { }
+    @Pointcut("execution(@com.dj.ca.ann.SingleClick * *(..)) && @annotation(singleClick)")
+    public void methodAnnotated(SingleClick singleClick) { }
 
-    @Around("methodAnnotated()")
-    public void aroundJoinPoint(ProceedingJoinPoint joinPoint) throws  Throwable{
+    @Around("methodAnnotated(singleClick)")
+    public void aroundJoinPoint(ProceedingJoinPoint joinPoint, SingleClick singleClick) throws  Throwable{
+        LogUtils.e("注解的值是："+singleClick.describe());
+
         View view=null;
         for (Object  arg :joinPoint.getArgs()){
             if(arg instanceof  View ){

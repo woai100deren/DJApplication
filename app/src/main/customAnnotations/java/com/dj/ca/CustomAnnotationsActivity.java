@@ -30,15 +30,16 @@ public class CustomAnnotationsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         ActivityCustomAnnotationsBinding dataBinding =  DataBindingUtil.setContentView(this, R.layout.activity_custom_annotations);
         dataBinding.button.setOnClickListener(new View.OnClickListener() {
-            @SingleClick
+
             @Override
+            @SingleClick(describe="this is a value")
             public void onClick(View v) {
                 LogUtils.e("点击了按钮："+System.currentTimeMillis());
             }
         });
 
         dataBinding.textView.setOnClickListener(new View.OnClickListener() {
-            @SingleClick
+            @SingleClick(describe = "this is a value")
             @Override
             public void onClick(View v) {
                 LogUtils.e("点击了textview："+System.currentTimeMillis());
@@ -101,7 +102,7 @@ public class CustomAnnotationsActivity extends BaseActivity {
         public void onBindViewHolder(CustomAnnotationsActivity.DataAdapter.ViewHolder holder, int position) {
             holder.mTextView.setText(datas.get(position));
             holder.mTextView.setOnClickListener(new View.OnClickListener() {
-                @SingleClick
+                @SingleClick(describe = "this is a value")
                 @Override
                 public void onClick(View v) {
                     LogUtils.e("点击了列表的textview："+datas.get(position));
