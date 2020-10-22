@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.coordinator.CoordinatorActivity;
+import com.dj.ca.ann.CheckLogin;
 import com.dj.ca.ann.SingleClick;
 import com.dj.collection.BaseActivity;
 import com.dj.collection.R;
@@ -103,6 +104,7 @@ public class CustomAnnotationsActivity extends BaseActivity {
             holder.mTextView.setText(datas.get(position));
             holder.mTextView.setOnClickListener(new View.OnClickListener() {
                 @SingleClick(describe = "this is a value")
+                @CheckLogin(toLogin = false,toastInfo = "我是登陆拦截")
                 @Override
                 public void onClick(View v) {
                     LogUtils.e("点击了列表的textview："+datas.get(position));
