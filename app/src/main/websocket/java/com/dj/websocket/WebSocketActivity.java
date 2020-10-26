@@ -62,7 +62,7 @@ public class WebSocketActivity extends BaseActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         WebSocketNetworkHelper.getInstance().closeConnect();
         super.onDestroy();
         EventBus.getDefault().unregister(this);

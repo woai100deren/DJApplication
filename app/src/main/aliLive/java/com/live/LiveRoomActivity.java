@@ -395,7 +395,7 @@ public class LiveRoomActivity extends BaseActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         stopPushWithoutSurface();
     }

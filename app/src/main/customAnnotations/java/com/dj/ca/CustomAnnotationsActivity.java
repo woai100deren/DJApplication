@@ -104,7 +104,7 @@ public class CustomAnnotationsActivity extends BaseActivity {
             holder.mTextView.setText(datas.get(position));
             holder.mTextView.setOnClickListener(new View.OnClickListener() {
                 @SingleClick(describe = "this is a value")
-                @CheckLogin(toLogin = false,toastInfo = "我是登陆拦截")
+                @CheckLogin(toLogin = true,toastInfo = "我是登陆拦截")
                 @Override
                 public void onClick(View v) {
                     LogUtils.e("点击了列表的textview："+datas.get(position));

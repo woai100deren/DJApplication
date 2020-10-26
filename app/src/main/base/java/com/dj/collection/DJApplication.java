@@ -20,11 +20,16 @@ import com.tencent.bugly.crashreport.CrashReport;
 
 public class DJApplication extends MultiDexApplication {
     private static Context context;
+    /**
+     * 生命周期管理工具
+     */
+    private ActivityLifeCycleCallbacks activityLifeCycleCallbacks = new ActivityLifeCycleCallbacks();
     @Override
     public void onCreate() {
         super.onCreate();
         context = this;
-
+        //注册生命周期监听
+        initRegisterActivity();
         CrashReport.initCrashReport(getApplicationContext(), "0fa389210e", false);
 
         if (BuildConfig.DEBUG) {
@@ -54,5 +59,37 @@ public class DJApplication extends MultiDexApplication {
 
     public static Context applicationContext(){
         return context;
+    }
+
+    /**
+     * 非内核终止退出app调用注销
+     */
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        unregisterActivityLifecycleCallbacks(activityLifeCycleCallbacks);
+    }
+
+    /**
+     * 注册生命周期监听
+     */
+    private void initRegisterActivity() {
+        registerActivityLifecycleCallbacks(activityLifeCycleCallbacks);
+    }
+
+    /**
+     * 获得生命周期监听管理、外部控制调用，如关闭所有的acitivty
+     *
+     * @return
+     */
+    public ActivityLifeCycleCallbacks getActivityLifeCycleCallbacks() {
+        return activityLifeCycleCallbacks;
+    }
+
+    /**
+     * 退出客户端
+     */
+    public void exitApp() {
+        activityLifeCycleCallbacks.finishAllActivity();
     }
 }

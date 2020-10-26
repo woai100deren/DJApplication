@@ -74,7 +74,7 @@ public class SocketActivity extends BaseActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         SocketManager.shutDown();
         try{
