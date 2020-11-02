@@ -38,6 +38,7 @@ import com.dj.logutil.LogUtils;
 import com.dj.mvvm.MvvmActivity;
 import com.dj.photoview.PhotoViewActivity;
 import com.dj.room.RoomActivity;
+import com.dj.scroll.message.ScrollMessageActivity;
 import com.dj.sk.SocketActivity;
 import com.dj.websocket.WebSocketActivity;
 import com.dj.ws.WSActivity;
@@ -264,6 +265,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     @OnClick(R.id.annotation)
     protected void annotation(){
         startActivity(new Intent(MainActivity.this, CustomAnnotationsActivity.class));
+    }
+
+    @OnClick(R.id.scrollMessage)
+    protected void scrollMessage(){
+        startActivity(new Intent(MainActivity.this, ScrollMessageActivity.class));
     }
 
     @Override

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/light_green">
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+        android:autoStart="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:flipInterval="1500"
+        android:inAnimation="@anim/anim_up_in"
+        android:outAnimation="@anim/anim_up_out" />
+</androidx.constraintlayout.widget.ConstraintLayout>

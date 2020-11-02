@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator">
+    <translate
+        android:duration="1000"
+        android:fromYDelta="0%"
+        android:fillAfter="true"
+        android:fillBefore="false"
+        android:toYDelta="-100%"
+        android:startOffset="0"/>
+    <!-- fillBefore是指动画结束时画面停留在第一帧,fillAfter是指动画结束是画面停留在最后一帧
+     android:startOffset：动画激活延时(即xx毫秒之后才开始执行动画)-->
+    <alpha
+        android:duration="1000"
+        android:fillAfter="true"
+        android:fillBefore="false"
+        android:fromAlpha="1.0"
+        android:repeatCount="0"
+        android:repeatMode="restart"
+        android:startOffset="0"
+        android:toAlpha="0.0"/>
+</set>

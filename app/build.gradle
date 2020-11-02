@@ -82,6 +82,7 @@ android {
                             'src/main/websocket/java',
                             'src/main/photoview/java',
                             'src/main/customAnnotations/java',
+                            'src/main/scrollMessage/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -112,6 +113,7 @@ android {
                            'src/main/websocket/res',
                            'src/main/photoview/res',
                            'src/main/customAnnotations/res',
+                           'src/main/scrollMessage/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }

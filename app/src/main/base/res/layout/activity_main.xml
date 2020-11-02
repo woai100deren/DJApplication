@@ -182,6 +182,12 @@
                 android:layout_height="wrap_content"
                 android:text="自定义注解+AspectJ"
                 android:id="@+id/annotation"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="滚动消息"
+                android:id="@+id/scrollMessage"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

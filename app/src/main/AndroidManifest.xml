@@ -91,6 +91,7 @@
         <activity android:name="com.dj.websocket.WebSocketActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dj.photoview.PhotoViewActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.dj.ca.CustomAnnotationsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.dj.scroll.message.ScrollMessageActivity" android:screenOrientation="portrait"/>
 
 
         <service android:name="com.service.MyService"/>
