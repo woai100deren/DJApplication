@@ -21,9 +21,7 @@ import com.coordinator.CoordinatorActivity;
 import com.detail.DetailActivity;
 import com.dj.bugly.BuglyActivity;
 import com.dj.ca.CustomAnnotationsActivity;
-import com.dj.camera.CameraActivity;
 import com.dj.collection.bean.AppInfoBean;
-import com.dj.collection.bean.SoResponseBean;
 import com.dj.collection.network.HttpUtils;
 import com.dj.collection.network.NetworkHelper;
 import com.dj.collection.network.listener.OnDownloadListener;
@@ -32,6 +30,7 @@ import com.dj.collection.utils.Utils;
 import com.dj.cpu.CPUFrameworkHelper;
 import com.dj.cpu.CpuTypeActivity;
 import com.dj.customclock.CustomClockActivity;
+import com.dj.dagger.MyDaggerActivity;
 import com.dj.download.DownloadActivity;
 import com.dj.event.DispatchEventActivity;
 import com.dj.logutil.LogUtils;
@@ -44,9 +43,7 @@ import com.dj.websocket.WebSocketActivity;
 import com.dj.ws.WSActivity;
 import com.dj.zip.ZipActivity;
 import com.dynamicso.DynamicsoActivity;
-import com.dynamsoft.CameraMinaShowActivity;
 import com.dynamsoft.CameraPicShowActivity;
-import com.dynamsoft.CameraShowActivity;
 import com.eventbus.EventBusMainActivity;
 import com.eventbus.event.MessageEvent;
 import com.eventbus.event.ToastEvent;
@@ -67,7 +64,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pub.devrel.easypermissions.EasyPermissions;
-import pub.devrel.easypermissions.PermissionRequest;
 
 public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
     private static final String TAG = MainActivity.class.getName();
@@ -214,10 +210,10 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         startActivity(new Intent(MainActivity.this, SocketActivity.class));
     }
 
-//    @OnClick(R.id.dagger)
-//    protected void dagger(){
-//        startActivity(new Intent(MainActivity.this, DaggerMainActvity.class));
-//    }
+    @OnClick(R.id.dagger)
+    protected void dagger(){
+        startActivity(new Intent(MainActivity.this, MyDaggerActivity.class));
+    }
 
     @OnClick(R.id.camera)
     protected void camera(){
