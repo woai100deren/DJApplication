@@ -188,6 +188,12 @@
                 android:layout_height="wrap_content"
                 android:text="滚动消息"
                 android:id="@+id/scrollMessage"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ASM字节插装"
+                android:id="@+id/asm"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

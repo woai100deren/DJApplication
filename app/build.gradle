@@ -83,6 +83,7 @@ android {
                             'src/main/photoview/java',
                             'src/main/customAnnotations/java',
                             'src/main/scrollMessage/java',
+                            'src/main/asm/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -114,6 +115,7 @@ android {
                            'src/main/photoview/res',
                            'src/main/customAnnotations/res',
                            'src/main/scrollMessage/res',
+                           'src/main/asm/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
@@ -240,6 +242,10 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
 //    implementation 'org.aspectj:aspectjrt:1.8.9'
+
+
+    testImplementation 'org.ow2.asm:asm:7.1'
+    testImplementation 'org.ow2.asm:asm-commons:7.1'
 }
 repositories {
     mavenCentral()

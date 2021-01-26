@@ -19,6 +19,7 @@ import com.bd.scan.BankScanActivity;
 import com.bigimage.BigImageActivity;
 import com.coordinator.CoordinatorActivity;
 import com.detail.DetailActivity;
+import com.dj.asm.ASMTestActivity;
 import com.dj.bugly.BuglyActivity;
 import com.dj.ca.CustomAnnotationsActivity;
 import com.dj.collection.bean.AppInfoBean;
@@ -266,6 +267,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     @OnClick(R.id.scrollMessage)
     protected void scrollMessage(){
         startActivity(new Intent(MainActivity.this, ScrollMessageActivity.class));
+    }
+
+    @OnClick(R.id.asm)
+    protected void asm(){
+        startActivity(new Intent(MainActivity.this, ASMTestActivity.class));
     }
 
     @Override
