@@ -45,6 +45,9 @@ Java_com_dj_cpu_CPUFrameworkHelper_isArmCpu(JNIEnv *env, jclass type)
     env->CallVoidMethod(javaClassObject,methodID);
     //执行静态方法，没有返回值用CallStaticVoidMethod
     env->CallStaticVoidMethod(javaClass,staticMethodID);
+    //删除引用
+    env->DeleteLocalRef(javaClass);
+    env->DeleteLocalRef(javaClassObject);
 
     return cpuFamily == ANDROID_CPU_FAMILY_ARM;
 }
