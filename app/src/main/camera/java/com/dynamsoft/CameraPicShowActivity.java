@@ -1,16 +1,22 @@
 package com.dynamsoft;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.hardware.camera2.CameraManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
 import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.dj.camera.view.PicturePlayerView;
 import com.dj.collection.BaseActivity;
 import com.dj.collection.R;
+import com.dj.logutil.LogUtils;
 import com.dynamsoft.data.DataListener;
 import com.dynamsoft.io.SocketPicNewServer;
 
@@ -25,6 +31,7 @@ public class CameraPicShowActivity extends BaseActivity implements DataListener 
     @BindView(R.id.picturePlayerView)
     PicturePlayerView picturePlayerView;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +46,17 @@ public class CameraPicShowActivity extends BaseActivity implements DataListener 
         SocketPicNewServer server = new SocketPicNewServer();
         server.setOnDataListener(this);
         server.start();
+
+        try {
+            CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+            for (String cameraId : cameraManager.getCameraIdList()) {
+                LogUtils.e("相机id = "+cameraId);
+//                CameraCharacteristics characteristics = cameraManager.getCameraCharacteristics(cameraId);
+//                characteristics.get(CameraCharacteristics.)
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 

@@ -1,5 +1,7 @@
 package com.dj.cpu;
 
+import android.util.Log;
+
 /**
  * Created by wangjing4 on 2017/7/11.
  */
@@ -24,6 +26,10 @@ public class CPUFrameworkHelper {
     public static native boolean isX86Cpu();//x86
     public static native boolean isX86_64Cpu();//x86_64
 
+    public CPUFrameworkHelper(){
+
+    }
+
     /**
      * 通过读取设备CPU类型，获取设备支持的so库文件夹名称
      */
@@ -45,5 +51,13 @@ public class CPUFrameworkHelper {
             fileName = X86_64;
         }
         return fileName;
+    }
+
+    public void printString(){
+        Log.e("SoUtils","我是非静态方法，我被jni调用了......");
+    }
+
+    public static void staticPrintString(){
+        Log.e("SoUtils","我是静态方法，我被jni调用了......");
     }
 }

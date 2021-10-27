@@ -194,6 +194,12 @@
                 android:layout_height="wrap_content"
                 android:text="ASM字节插装"
                 android:id="@+id/asm"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="陀螺仪"
+                android:id="@+id/gyroscope"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

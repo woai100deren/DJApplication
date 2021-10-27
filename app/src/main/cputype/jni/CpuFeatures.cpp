@@ -29,6 +29,23 @@ JNIEXPORT jboolean JNICALL
 Java_com_dj_cpu_CPUFrameworkHelper_isArmCpu(JNIEnv *env, jclass type)
 {
     AndroidCpuFamily cpuFamily = android_getCpuFamily();
+
+    //以下是调研jni如何调用java方法
+    //获取java的类
+    jclass javaClass =  (jclass) env->NewGlobalRef(env->FindClass("com/dj/cpu/CPUFrameworkHelper"));
+    //获取java的构造函数
+    jmethodID constructorID = env->GetMethodID(javaClass,"<init>","()V");
+    //获取java的非静态方法：printString
+    jmethodID methodID = env->GetMethodID(javaClass,"printString","()V");
+    //获取java的静态方法：staticPrintString
+    jmethodID staticMethodID = env->GetStaticMethodID(javaClass,"staticPrintString","()V");
+    //调用构造函数生成java对象
+    jobject javaClassObject = env->NewObject(javaClass,constructorID);
+    //执行非静态方法，没有返回值用CallVoidMethod
+    env->CallVoidMethod(javaClassObject,methodID);
+    //执行静态方法，没有返回值用CallStaticVoidMethod
+    env->CallStaticVoidMethod(javaClass,staticMethodID);
+
     return cpuFamily == ANDROID_CPU_FAMILY_ARM;
 }
 

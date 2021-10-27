@@ -34,6 +34,7 @@ import com.dj.customclock.CustomClockActivity;
 import com.dj.dagger.MyDaggerActivity;
 import com.dj.download.DownloadActivity;
 import com.dj.event.DispatchEventActivity;
+import com.dj.gyroscope.GyroscopeActivity;
 import com.dj.logutil.LogUtils;
 import com.dj.mvvm.MvvmActivity;
 import com.dj.photoview.PhotoViewActivity;
@@ -272,6 +273,11 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     @OnClick(R.id.asm)
     protected void asm(){
         startActivity(new Intent(MainActivity.this, ASMTestActivity.class));
+    }
+
+    @OnClick(R.id.gyroscope)
+    protected void gyroscope(){
+        startActivity(new Intent(MainActivity.this, GyroscopeActivity.class));
     }
 
     @Override

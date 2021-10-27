@@ -3,8 +3,8 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.jakewharton.butterknife'
 
-import com.dj.plugin.AspectjPlugin
-apply plugin: AspectjPlugin
+//import com.dj.plugin.AspectjPlugin
+//apply plugin: AspectjPlugin
 
 //apply plugin: 'com.avery.android.aspectj'
 
@@ -84,6 +84,7 @@ android {
                             'src/main/customAnnotations/java',
                             'src/main/scrollMessage/java',
                             'src/main/asm/java',
+                            'src/main/gyroscope/java',
                             'src/main/rxjava/java']//指定source目录
             res.srcDirs = ['src/main/base/res',
                            'src/main/eventBus/res',
@@ -116,6 +117,7 @@ android {
                            'src/main/customAnnotations/res',
                            'src/main/scrollMessage/res',
                            'src/main/asm/res',
+                           'src/main/gyroscope/res',
                            'src/main/rxjava/res']//指定资源目录
         }
     }
